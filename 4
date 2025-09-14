@@ -1,0 +1,45 @@
+# Este programa calcula el área de varios círculos y clasifica cada uno según su tamaño
+
+# Declaración de variables
+local π_val::Float64 = 3.1415           # Aproximación de π
+local nombre_usuario::String            # Nombre del usuario
+radios = Float64[]     # Arreglo para guardar radios
+areas = Float64[]      # Arreglo para guardar áreas
+
+# Solicitar nombre del usuario
+println("Bienvenido al programa de cálculo de áreas de círculos")
+println("¿Cuál es tu nombre?")
+nombre_usuario = readline()
+
+# Solicitar cuántos círculos se van a calcular
+println("¿Cuántos círculos deseas calcular?")
+cantidad_str = readline()
+cantidad = parse(Int, cantidad_str)
+
+# Bucle para pedir radios y calcular áreas
+for i in 1:cantidad
+    println("Escribe el radio del círculo $i:")
+    radio_str = readline()
+    radio = parse(Float64, radio_str)
+    push!(radios, radio)                       
+    area = π_val * radio^2
+    push!(areas, area)
+end
+
+# Mostrar resultados y clasificar áreas
+println("\nHola, $nombre_usuario. Aquí esta la clasificacíon de los circulos:")
+
+for i in 1:length(areas)
+    area = areas[i]
+    println("Círculo $i: Área = ", area)
+
+    # Clasificación usando condicionales
+    if area < 50
+        println("→ Área pequeña")
+    elseif area <= 150
+        println("→ Área mediana")
+    else
+        println("→ Área grande")
+    end
+end
+
