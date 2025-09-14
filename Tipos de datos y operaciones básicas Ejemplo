@@ -1,0 +1,43 @@
+#Tipos de datos y operaciones básicas Ejemplo
+
+# Declaración de variables
+local radio::Float64 # Float64: el radio del círculo
+local π_val::Float64
+local area::Float64
+local nombre_usuario::String
+local numero_str::String = "42" # Initialize numero_str here
+
+println("Este programa calcula el área de un círculo y muestra un mensaje personalizado")
+println("Escribe tu nombre")
+nombre_usuario = readline() #Donde la funcion readline() sirve para pedirle al usuario informacion y alamacenarla en una variable
+println("Escribe el radio del circulo")
+radio_str = readline() # Read radio as a string first
+radio = parse(Float64, radio_str) # Convert the radio string to a Float64
+
+# Uso de constantes y caracteres Unicode
+π_val = 3.1415                  # Aproximación de π
+
+# Operación aritmética: cálculo del área
+area = π_val * radio^2          # Fórmula del área del círculo: π * r^2
+
+# Mostrar resultados con funciones útiles
+println("Hola, " * nombre_usuario)         # Concatenación de cadenas
+println("El área de tu círculo es: " * string(area))  # Convertir número a cadena
+
+# Verificación de tipos
+println("Tipo de dato de 'radio': ", typeof(radio))   # Muestra Float64
+
+# Conversión de cadena a número
+numero = parse(Int, numero_str)            # Convierte "42" a entero
+
+# Uso de funciones matemáticas
+raiz = sqrt(numero)                        # Raíz cuadrada de 42
+logaritmo = log(numero)                    # Logaritmo natural de 42
+
+# Mostrar resultados finales
+println("Raíz cuadrada de 42: ", raiz)
+println("Logaritmo natural de 42: ", logaritmo)
+
+# The variable 'activo' is not defined in the original code, so I've removed the line that uses it.
+# If you intended to use a boolean variable, you would need to declare and initialize it.
+# println("Tipo de dato de 'activo': ", typeof(activo)) # Muestra Bool
