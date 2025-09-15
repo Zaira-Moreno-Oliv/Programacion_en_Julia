@@ -1,4 +1,3 @@
-# Control de Flujo Ejemplo
 
 # Lista de calificaciones
 calificaciones = [10, 7, 5, 8, 10, 6, 4, 9]  # Se crea un arreglo con las calificaciones de los estudiantes
