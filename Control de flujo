@@ -1,54 +1,55 @@
 # Control de Flujo Ejemplo
 
-Print
 # Lista de calificaciones
-calificaciones = [10, 7, 5, 8, 10, 6, 4, 9]
+calificaciones = [10, 7, 5, 8, 10, 6, 4, 9]  # Se crea un arreglo con las calificaciones de los estudiantes
 
 # Contadores
-aprobados = 0
-reprobados = 0
-perfectos = 0
+aprobados = 0       # Variable para contar cuántos estudiantes aprobaron (nota ≥ 6)
+reprobados = 0      # Variable para contar cuántos estudiantes reprobaron (nota < 6)
+perfectos = 0       # Variable para contar cuántos obtuvieron calificación perfecta (nota == 10)
 
 # Clasificación de calificaciones usando bucle for y condicionales
-for nota in calificaciones
-    println("Calificación: ", nota)
+for nota in calificaciones                 # Se recorre cada elemento del arreglo 'calificaciones'
+    println("Calificación: ", nota)        # Se imprime la calificación actual
 
-    if nota == 10
-        println("→ Excelente")
-        perfectos += 1
-    elseif nota >= 6
-        println("→ Aprobado")
-        aprobados += 1
-    else
-        println("→ Reprobado")
-        reprobados += 1
-    end
-end
+    if nota == 10                          # Condicional: si la nota es exactamente 10
+        println("→ Excelente")             # Se imprime que es excelente
+        perfectos += 1                     # Se incrementa el contador de perfectos
+
+    elseif nota >= 6                       # Si no fue 10, pero es mayor o igual a 6
+        println("→ Aprobado")              # Se imprime que está aprobado
+        aprobados += 1                     # Se incrementa el contador de aprobados
+
+    else                                   # Si no cumple ninguna de las anteriores (nota < 6)
+        println("→ Reprobado")             # Se imprime que está reprobado
+        reprobados += 1                    # Se incrementa el contador de reprobados
+    end                                    # Fin del bloque condicional
+end                                        # Fin del bucle for
 
 # Mostrar resumen
-println("\nResumen:")
-println("Aprobados: ", aprobados)
-println("Reprobados: ", reprobados)
-println("Perfectos: ", perfectos)
+println("\nResumen:")                      # Se imprime un encabezado para el resumen
+println("Aprobados: ", aprobados)         # Se muestra el total de aprobados
+println("Reprobados: ", reprobados)       # Se muestra el total de reprobados
+println("Perfectos: ", perfectos)         # Se muestra el total de calificaciones perfectas
 
 # Uso de operadores lógicos
-if aprobados > 0 && reprobados > 0
-    println("Hay estudiantes aprobados y reprobados")
+if aprobados > 0 && reprobados > 0         # Condición compuesta: si hay al menos un aprobado y un reprobado
+    println("Hay estudiantes aprobados y reprobados")  # Se imprime el mensaje correspondiente
 end
 
-if perfectos != 0 || reprobados == 0
-    println("Al menos un estudiante tuvo calificación perfecta o nadie reprobó")
+if perfectos != 0 || reprobados == 0       # Condición compuesta: si hay perfectos o nadie reprobó
+    println("Al menos un estudiante tuvo calificación perfecta o nadie reprobó")  # Mensaje informativo
 end
 
-if !(aprobados == length(calificaciones))
-    println("No todos aprobaron")
+if !(aprobados == length(calificaciones))  # Negación lógica: si no todos aprobaron
+    println("No todos aprobaron")          # Se imprime que no todos aprobaron
 end
 
 # Bucle while para contar hasta el número de estudiantes
-contador = 1
-println("\nContando estudiantes:")
-while contador <= length(calificaciones)
-    println("Estudiante ", contador)
-    contador += 1
-end
+contador = 1                               # Se inicializa el contador en 1
+println("\nContando estudiantes:")         # Encabezado para la sección de conteo
 
+while contador <= length(calificaciones)   # Mientras el contador sea menor o igual al número de estudiantes
+    println("Estudiante ", contador)       # Se imprime el número del estudiante
+    contador += 1                          # Se incrementa el contador
+end                                        # Fin del bucle while
