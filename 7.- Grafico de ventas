@@ -1,0 +1,17 @@
+using Plots  # Cargar la librería Plots
+
+# Datos de ejemplo
+meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun"]
+ventas = [120, 150, 90, 170, 200, 130]
+
+# Gráfico de barras
+grafico_barras = bar(meses, ventas, title="Ventas Mensuales - Barras", xlabel="Meses", ylabel="Ventas", legend=false)
+display(grafico_barras)  # Mostrar gráfico de barras
+
+# Gráfico de líneas
+grafico_lineas = plot(meses, ventas, title="Ventas Mensuales - Línea", xlabel="Meses", ylabel="Ventas", legend=false)
+display(grafico_lineas)  # Mostrar gráfico de líneas
+
+# Gráfico de dispersión
+grafico_dispersion = scatter(meses, ventas, title="Ventas Mensuales - Dispersión", xlabel="Meses", ylabel="Ventas", legend=false)
+display(grafico_dispersion)  # Mostrar gráfico de dispersión
