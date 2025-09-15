@@ -1,10 +1,10 @@
 # Este programa calcula el área de varios círculos y clasifica cada uno según su tamaño
 
 # Declaración de variables
-local π_val::Float64 = 3.1415           # Aproximación de π
-local nombre_usuario::String            # Nombre del usuario
-radios = Float64[]     # Arreglo para guardar radios
-areas = Float64[]      # Arreglo para guardar áreas
+π_val = 3.1415                      # Aproximación de π
+nombre_usuario = ""                # Inicialización como cadena vacía
+radios = Float64[]                 # Arreglo para guardar radios
+areas = Float64[]                  # Arreglo para guardar áreas
 
 # Solicitar nombre del usuario
 println("Bienvenido al programa de cálculo de áreas de círculos")
@@ -21,13 +21,27 @@ for i in 1:cantidad
     println("Escribe el radio del círculo $i:")
     radio_str = readline()
     radio = parse(Float64, radio_str)
-    push!(radios, radio)                       
+    push!(radios, radio)                       # Agrega el radio al arreglo
     area = π_val * radio^2
-    push!(areas, area)
+    push!(areas, area)                         # Agrega el área al arreglo
+
+    # Mostrar cuántos elementos hay hasta ahora
+    println("Total de radios registrados: ", length(radios))
+end
+
+# Opción para eliminar el último círculo si hubo error
+println("\n¿Deseas eliminar el último círculo ingresado? (si/no)")
+respuesta = readline()
+
+if respuesta == "si"
+    eliminado_radio = pop!(radios)             # Elimina el último radio
+    eliminado_area = pop!(areas)               # Elimina el último área
+    println("Se eliminó el radio: ", eliminado_radio)
+    println("Se eliminó el área: ", eliminado_area)
 end
 
 # Mostrar resultados y clasificar áreas
-println("\nHola, $nombre_usuario. Aquí esta la clasificacíon de los circulos:")
+println("\nHola, $nombre_usuario. Aquí está la clasificación de los círculos:")
 
 for i in 1:length(areas)
     area = areas[i]
@@ -43,3 +57,5 @@ for i in 1:length(areas)
     end
 end
 
+# Mostrar resumen final
+println("\nTotal de círculos calculados: ", length(areas))
