@@ -1,0 +1,44 @@
+# 📦 Crear un archivo CSV y escribir datos en él
+
+# Abrimos el archivo en modo escritura usando un bloque seguro 'do'
+open("personas.csv", "w") do archivo
+    # 'archivo' es el manejador del archivo, válido solo dentro del bloque
+
+    # Escribimos encabezado en formato CSV
+    write(archivo, "Nombre,Edad\n")  # write() escribe texto en el archivo
+
+    # Registramos tres personas manualmente
+    write(archivo, "Ana,25\n")
+    write(archivo, "Luis,30\n")
+    write(archivo, "Sofía,22\n")
+end  # Al finalizar el bloque, el archivo se cierra automáticamente
+
+# ✅ Confirmación de escritura
+println("Archivo 'personas.csv' creado y datos escritos.")
+
+# 📖 Leer el contenido del archivo .csv
+
+# Abrimos el archivo en modo lectura usando otro bloque seguro 'do'
+open("personas.csv", "r") do archivo
+    # Leemos todo el contenido del archivo como una cadena
+    contenido = read(archivo, String)  # read() lee el archivo completo como texto
+
+    # Mostramos el contenido leído
+    println("\nContenido del archivo:")
+    println(contenido)
+end  # El archivo se cierra automáticamente al terminar el bloque
+
+# 📄 También podemos hacer lo mismo con archivos .txt
+
+# Escribimos un archivo de texto plano
+open("mensaje.txt", "w") do archivo
+    write(archivo, "Este es un mensaje guardado en un archivo de texto.\n")
+    write(archivo, "¡Julia hace que esto sea muy fácil!")
+end
+
+# Leemos el archivo de texto
+open("mensaje.txt", "r") do archivo
+    texto = read(archivo, String)
+    println("\nContenido del archivo 'mensaje.txt':")
+    println(texto)
+end
