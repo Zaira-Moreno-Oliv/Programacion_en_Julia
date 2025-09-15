@@ -1,1 +1,41 @@
+# Crear un diccionario vacío para almacenar productos y precios
+productos = Dict{String, Float64}()  # Dict con claves tipo String (nombre del producto) y valores tipo Float64 (precio)
 
+# Mostrar mensaje de bienvenida
+println("Bienvenido al sistema de registro de productos")
+
+# Preguntar cuántos productos se van a registrar
+println("¿Cuántos productos deseas ingresar?")
+cantidad = parse(Int, readline())  # readline() lee la entrada como texto, parse(Int, ...) la convierte a entero
+
+# Bucle para registrar productos
+for i in 1:cantidad
+    println("Escribe el nombre del producto $i:")
+    nombre = readline()  # Captura el nombre del producto como cadena
+
+    println("Escribe el precio de $nombre:")
+    precio = parse(Float64, readline())  # Convierte la entrada a número decimal (Float64)
+
+    productos[nombre] = precio  # Asigna el precio al producto en el diccionario
+end
+
+# Mostrar todos los productos registrados
+println("\nLista de productos registrados:")
+for nombre in keys(productos)  # keys(productos) devuelve todas las claves del diccionario
+    println("$nombre → \$", productos[nombre])  # Accede al valor usando la clave
+end
+
+# Preguntar si el usuario quiere consultar un producto
+println("\n¿Deseas consultar el precio de algún producto? (sí/no)")
+respuesta = readline()
+
+if respuesta == "sí"  # Sentencia condicional: si la respuesta es "sí"
+    println("Escribe el nombre del producto que deseas consultar:")
+    consulta = readline()
+
+    if haskey(productos, consulta)  # haskey verifica si la clave existe en el diccionario
+        println("El precio de $consulta es \$", productos[consulta])  # Muestra el precio si existe
+    else
+        println("Ese producto no está registrado.")  # Mensaje si la clave no se encuentra
+    end
+end
