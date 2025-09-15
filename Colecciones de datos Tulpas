@@ -1,0 +1,33 @@
+# Crear un arreglo vacío para almacenar tuplas de libros
+libros = []  # Se usará para guardar cada tupla con datos de un libro
+
+# Mostrar mensaje de bienvenida
+println("Bienvenido al registro de libros")
+
+# Preguntar cuántos libros se van a registrar
+println("¿Cuántos libros deseas ingresar?")
+cantidad = parse(Int, readline())  # readline() lee texto, parse(Int, ...) lo convierte a entero
+
+# Bucle para registrar cada libro
+for i in 1:cantidad
+    println("Escribe el título del libro $i:")
+    titulo = readline()  # Captura el título como cadena
+
+    println("Escribe el autor de '$titulo':")
+    autor = readline()  # Captura el autor como cadena
+
+    println("Escribe el año de publicación de '$titulo':")
+    año = parse(Int, readline())  # Convierte el año a entero
+
+    libro = (titulo, autor, año)  # Se crea una tupla con los tres datos
+    push!(libros, libro)          # Se agrega la tupla al arreglo 'libros'
+end
+
+# Mostrar todos los libros registrados
+println("\nLibros registrados:")
+for l in libros  # Recorre cada tupla en el arreglo
+    println("Título: ", l[1])     # Accede al primer elemento de la tupla (título)
+    println("Autor: ", l[2])      # Accede al segundo elemento (autor)
+    println("Año: ", l[3])        # Accede al tercer elemento (año)
+    println("----------------------")  # Separador visual
+end
