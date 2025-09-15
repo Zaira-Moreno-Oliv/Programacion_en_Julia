@@ -1,17 +1,16 @@
-# Crear un diccionario vacío para almacenar productos y precios
+# Crea un diccionario vacío para almacenar productos y precios
 productos = Dict{String, Float64}()  # Dict con claves tipo String (nombre del producto) y valores tipo Float64 (precio)
 
-# Mostrar mensaje de bienvenida
 println("Bienvenido al sistema de registro de productos")
 
-# Preguntar cuántos productos se van a registrar
+# Ingresa cantidad de datos en el diccionario 
 println("¿Cuántos productos deseas ingresar?")
 cantidad = parse(Int, readline())  # readline() lee la entrada como texto, parse(Int, ...) la convierte a entero
 
 # Bucle para registrar productos
 for i in 1:cantidad
     println("Escribe el nombre del producto $i:")
-    nombre = readline()  # Captura el nombre del producto como cadena
+    nombre = readline() 
 
     println("Escribe el precio de $nombre:")
     precio = parse(Float64, readline())  # Convierte la entrada a número decimal (Float64)
@@ -26,10 +25,10 @@ for nombre in keys(productos)  # keys(productos) devuelve todas las claves del d
 end
 
 # Preguntar si el usuario quiere consultar un producto
-println("\n¿Deseas consultar el precio de algún producto? (sí/no)")
+println("\n¿Deseas consultar el precio de algún producto? (si/no)")
 respuesta = readline()
 
-if respuesta == "sí"  # Sentencia condicional: si la respuesta es "sí"
+if respuesta == "si"  # Sentencia condicional: si la respuesta es "si"
     println("Escribe el nombre del producto que deseas consultar:")
     consulta = readline()
 
