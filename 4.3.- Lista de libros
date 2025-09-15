@@ -1,10 +1,9 @@
-# Crear un arreglo vacío para almacenar tuplas de libros
+# Crea un arreglo vacío para almacenar tuplas de libros
 libros = []  # Se usará para guardar cada tupla con datos de un libro
 
-# Mostrar mensaje de bienvenida
 println("Bienvenido al registro de libros")
 
-# Preguntar cuántos libros se van a registrar
+# Registrar la cantidad de datos
 println("¿Cuántos libros deseas ingresar?")
 cantidad = parse(Int, readline())  # readline() lee texto, parse(Int, ...) lo convierte a entero
 
