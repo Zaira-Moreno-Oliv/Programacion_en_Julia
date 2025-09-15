@@ -1,0 +1,51 @@
+# Lista de calificaciones
+calificaciones = [10, 7, 5, 8, 10, 6, 4, 9]
+
+# Contadores
+aprobados = 0
+reprobados = 0
+perfectos = 0
+
+# Clasificación de calificaciones usando bucle for y condicionales
+for nota in calificaciones
+    println("Calificación: ", nota)
+
+    if nota == 10
+        println("→ Excelente")
+        perfectos += 1
+    elseif nota >= 6
+        println("→ Aprobado")
+        aprobados += 1
+    else
+        println("→ Reprobado")
+        reprobados += 1
+    end
+end
+
+# Mostrar resumen
+println("\nResumen:")
+println("Aprobados: ", aprobados)
+println("Reprobados: ", reprobados)
+println("Perfectos: ", perfectos)
+
+# Uso de operadores lógicos
+if aprobados > 0 && reprobados > 0
+    println("Hay estudiantes aprobados y reprobados")
+end
+
+if perfectos != 0 || reprobados == 0
+    println("Al menos un estudiante tuvo calificación perfecta o nadie reprobó")
+end
+
+if !(aprobados == length(calificaciones))
+    println("No todos aprobaron")
+end
+
+# Bucle while para contar hasta el número de estudiantes
+contador = 1
+println("\nContando estudiantes:")
+while contador <= length(calificaciones)
+    println("Estudiante ", contador)
+    contador += 1
+end
+
