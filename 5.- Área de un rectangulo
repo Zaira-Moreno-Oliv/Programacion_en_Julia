@@ -1,34 +1,30 @@
-# 🌍 Variable global: se puede usar en todo el programa
+# Variable global: se puede usar en todo el programa
 usuario = ""  # Se inicializa como cadena vacía para guardar el nombre
 
-# 🧮 Función productiva: calcula el área de un rectángulo
+# Función productiva: calcula el área de un rectángulo
 function calcular_area(base, altura)
     # base y altura son parámetros que recibe la función
     area = base * altura  # Variable local: solo existe dentro de esta función
     return area           # Devuelve el resultado al lugar donde se llamó la función
 end
 
-# 📣 Función nula: muestra un saludo personalizado
+# Función nula: muestra un saludo personalizado
 function saludar(nombre)
     println("Hola, $nombre. Vamos a calcular el área de tu rectángulo.")  # No devuelve valor, solo imprime
 end
 
-# 🧑‍💻 Solicitar datos al usuario
 println("¿Cuál es tu nombre?")
-usuario = readline()  # Guarda el nombre en la variable global 'usuario'
+usuario = readline() 
 
-# Llamar a la función nula para saludar
-saludar(usuario)  # Se pasa el nombre como argumento
+saludar(usuario)  # Se pasa el nombre como argumento # Llama a la función nula para saludar
 
-# 📏 Solicitar medidas del rectángulo
 println("Escribe la base del rectángulo:")
-base = parse(Float64, readline())  # Convierte la entrada a número decimal
+base = parse(Float64, readline())  
 
 println("Escribe la altura del rectángulo:")
-altura = parse(Float64, readline())  # También se convierte a Float64
+altura = parse(Float64, readline()) 
 
-# 🧠 Llamar a la función productiva para calcular el área
+# Llama a la función productiva para calcular el área
 resultado = calcular_area(base, altura)  # Se guarda el valor retornado en 'resultado'
 
-# Mostrar el resultado
 println("El área de tu rectángulo es: ", resultado)
